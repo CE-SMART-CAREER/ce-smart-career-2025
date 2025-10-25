@@ -7,23 +7,27 @@ import {
   Introduction,
   Location,
   Seminar,
+  ComingSoon,
 } from '@/modules/home/_sections';
 import type { Company, SeminarDay } from '../_types';
 import { useCurrentSectionStore } from '../_store/current-section';
 import ObserverSection from './observer-section';
+import { useCallback, useMemo } from 'react';
+
 
 type Props = {
   companyId: number;
   companies: Company[];
   seminarList: SeminarDay[];
+  isComingSoon: boolean
 };
 
-export default function Content({ companyId, companies, seminarList }: Props) {
+export default function Content({ companyId, companies, seminarList, isComingSoon }: Props) {
   const { setCurrentSection } = useCurrentSectionStore(
     (state) => state.actions,
   );
 
-  const setInView = (inView: boolean, entry: IntersectionObserverEntry) => {
+  const setInView = useCallback((inView: boolean, entry: IntersectionObserverEntry) => {
     if (inView) {
       const sectionId = entry.target.getAttribute('id');
 
@@ -31,7 +35,29 @@ export default function Content({ companyId, companies, seminarList }: Props) {
         setCurrentSection(sectionId);
       }
     }
-  };
+  }, [setCurrentSection]);
+
+  const content = useMemo(() => {
+    if (!isComingSoon) { 
+      return (
+        <>
+          <ObserverSection id="seminar" onChange={setInView}>
+            <Seminar seminarList={seminarList} />
+          </ObserverSection><ObserverSection id="companies" onChange={setInView}>
+            <CompanyLogos companies={companies} selectedCompanyId={companyId} />
+          </ObserverSection><ObserverSection id="locations" onChange={setInView}>
+            <Location companies={companies} />
+          </ObserverSection>
+        </>
+      ) 
+    }
+
+    return (
+        <ObserverSection id="coming-soon" onChange={setInView}>
+          <ComingSoon />
+        </ObserverSection>
+      )
+  }, [companies, companyId, seminarList, setInView, isComingSoon])
 
   return (
     <>
@@ -40,15 +66,7 @@ export default function Content({ companyId, companies, seminarList }: Props) {
         <ObserverSection id="about" onChange={setInView}>
           <Description />
         </ObserverSection>
-        <ObserverSection id="seminar" onChange={setInView}>
-          <Seminar seminarList={seminarList} />
-        </ObserverSection>
-        <ObserverSection id="companies" onChange={setInView}>
-          <CompanyLogos companies={companies} selectedCompanyId={companyId} />
-        </ObserverSection>
-        <ObserverSection id="locations" onChange={setInView}>
-          <Location companies={companies} />
-        </ObserverSection>
+        { content }
       </main>
       <Footer />
     </>

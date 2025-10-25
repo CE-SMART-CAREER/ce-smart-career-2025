@@ -42,7 +42,7 @@ export default function Introduction() {
 
         <h1 className="text-center font-silom text-5xl leading-relaxed sm:text-6xl sm:leading-relaxed md:text-7xl md:leading-normal">
           CE <br />
-          Smart Career <br /> 2024
+          Smart Career <br /> 2025
         </h1>
       </div>
     </div>

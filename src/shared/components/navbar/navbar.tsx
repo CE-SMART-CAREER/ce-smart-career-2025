@@ -1,19 +1,29 @@
-'use client';
+'use client'
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Root, Trigger, Content, Arrow } from '@radix-ui/react-popover';
-import { NAV_LINKS } from './_constants';
+import { NAV_LINKS, COMING_SOON_NAV_LINKS } from './_constants';
 import Link from 'next/link';
 import { cn } from '@/shared/utils';
 import { useCurrentSectionStore } from '@/modules/home/_store';
+import type { NavListItem } from './_types';
 
-export function NavBar() {
+type Props = {
+  isComingSoon: boolean
+}
+
+export function NavBar({ isComingSoon }: Props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const currenSection = useCurrentSectionStore((state) => state.currentSection);
+  const navList = useRef<NavListItem[]>(
+    isComingSoon ?
+    COMING_SOON_NAV_LINKS :
+    NAV_LINKS
+  )
 
   return (
-    <nav className="fixed top-0 z-10 flex w-full items-center justify-between bg-linear-orange-gray px-5 py-5 text-lg backdrop-blur-[100px] lg:px-8 lg:text-xl">
-      <h1 className="text-xl font-bold lg:text-2xl">CE Smart Career 2024</h1>
+    <nav className="fixed text-slate-50 top-0 z-10 flex w-full items-center justify-between bg-linear-orange-black px-5 py-5 text-lg backdrop-blur-[100px] lg:px-8 lg:text-xl">
+      <h1 className="text-xl font-bold lg:text-2xl">CE Smart Career 2025</h1>
 
       <Root onOpenChange={(open) => setIsMenuOpen(open)}>
         <Trigger className="md:hidden" aria-label="Open Menu">
@@ -43,7 +53,7 @@ export function NavBar() {
             className="w-full rounded-lg bg-black p-4 text-white shadow-md md:hidden"
           >
             <ul className="flex flex-col space-y-4">
-              {NAV_LINKS.map((navLink, index) => (
+              {navList.current.map((navLink, index) => (
                 <li key={index}>
                   <Link
                     onClick={() => {
@@ -68,7 +78,7 @@ export function NavBar() {
       </Root>
 
       <ul className="mx-2 hidden space-x-4 font-bold md:flex lg:space-x-10">
-        {NAV_LINKS.map((navLink, index) => (
+        {navList.current.map((navLink, index) => (
           <li key={index}>
             <Link
               href={navLink.href}

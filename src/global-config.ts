@@ -1,5 +1,6 @@
 export type ConfigValue = {
   env: 'development' | 'production' | 'test';
+  isComingSoon: boolean;
   nocodb: {
     apiUrl: string;
     token: string;
@@ -10,6 +11,7 @@ export type ConfigValue = {
 
 export const CONFIG: ConfigValue = {
   env: process.env.NODE_ENV,
+  isComingSoon: process.env.IS_COMING_SOON === "true",
   nocodb: {
     apiUrl: process.env.NOCODB_API_URL ?? '',
     token: process.env.NOCODB_API_TOKEN ?? '',
