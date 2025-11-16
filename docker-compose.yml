@@ -1,7 +1,7 @@
 services:
   ce-smart-career:
     container_name: ce-smart-career
-    image: ghcr.io/ce-smart-career/ce-smart-career-2024-stg:latest
+    image: ghcr.io/ce-smart-career/ce-smart-career-2025-stg:latest
     pull_policy: always
     restart: always
     ports:
