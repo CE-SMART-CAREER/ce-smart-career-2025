@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: ce-smart-career-frontend-prd
-          image: ghcr.io/ce-smart-career/ce-smart-career-2024-prd:latest
+          image: ghcr.io/ce-smart-career/ce-smart-career-2025-prd:latest
           imagePullPolicy: Always
           env:
             - name: NOCODB_API_URL

@@ -3,7 +3,7 @@ name: CICD Staging
 on:
   push:
     branches:
-      - develop
+      - stg
 
 env:
   NOCODB_API_TOKEN: ${{ secrets.STG_NOCODB_API_TOKEN }}
