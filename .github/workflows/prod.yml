@@ -18,7 +18,7 @@ jobs:
     permissions:
       packages: write
       contents: read
-      
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v5
@@ -37,7 +37,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64
           cache-from: type=gha
           cache-to: type=gha,mode=max
           tags: ghcr.io/ce-smart-career/${{ github.event.repository.name }}-prd:latest
