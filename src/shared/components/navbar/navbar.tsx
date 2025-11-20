@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { cn } from '@/shared/utils';
 import { useCurrentSectionStore } from '@/modules/home/_store';
 import type { NavListItem } from './_types';
+import { CONFIG } from '@/global-config';
 
 type Props = {
   isComingSoon: boolean
@@ -23,7 +24,7 @@ export function NavBar({ isComingSoon }: Props) {
 
   return (
     <nav className="fixed text-slate-50 top-0 z-10 flex w-full items-center justify-between bg-linear-orange-black px-5 py-5 text-lg backdrop-blur-[100px] lg:px-8 lg:text-xl">
-      <h1 className="text-xl font-bold lg:text-2xl">CE Smart Career 2025</h1>
+      <h1 className="text-xl font-bold lg:text-2xl">CE Smart Career {CONFIG.date.years}</h1>
 
       <Root onOpenChange={(open) => setIsMenuOpen(open)}>
         <Trigger className="md:hidden" aria-label="Open Menu">

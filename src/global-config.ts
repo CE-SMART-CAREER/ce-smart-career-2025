@@ -1,3 +1,5 @@
+import { Seminar } from "./modules/home/_sections";
+
 export type ConfigValue = {
   env: 'development' | 'production' | 'test';
   isComingSoon: boolean;
@@ -7,6 +9,11 @@ export type ConfigValue = {
     companyDb: string;
     seminarDb: string;
   };
+  date: {
+    years: string;
+    seminarFirstDayDate: string // mm-dd-yy
+    seminarSecondDayDate: string // mm-dd-yy
+  }
 };
 
 export const CONFIG: ConfigValue = {
@@ -18,4 +25,9 @@ export const CONFIG: ConfigValue = {
     companyDb: process.env.NOCODB_COMPANY_DB ?? '',
     seminarDb: process.env.NOCODB_SEMINAR_DB ?? '',
   },
+  date: {
+    seminarFirstDayDate: process.env.SEMINAR_FIRST_DAY_DATE ?? '',
+    seminarSecondDayDate: process.env.SEMINAR_SECOND_DAY_DATE ?? '',
+    years: process.env.YEARS ?? new Date().getFullYear().toString()
+  }
 };

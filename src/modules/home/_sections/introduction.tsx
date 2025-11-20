@@ -1,3 +1,4 @@
+import { CONFIG } from '@/global-config';
 import { Circle } from '@/shared/components';
 import Image from 'next/image';
 
@@ -42,7 +43,7 @@ export default function Introduction() {
 
         <h1 className="text-center font-silom text-5xl leading-relaxed sm:text-6xl sm:leading-relaxed md:text-7xl md:leading-normal">
           CE <br />
-          Smart Career <br /> 2025
+          Smart Career <br /> {CONFIG.date.years}
         </h1>
       </div>
     </div>

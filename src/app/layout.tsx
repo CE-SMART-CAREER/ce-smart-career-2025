@@ -3,6 +3,7 @@ import { IBM_Plex_Sans_Thai } from 'next/font/google';
 import localFont from 'next/font/local';
 import '@/shared/style/globals.css';
 import { cn } from '@/shared/utils';
+import { CONFIG } from '@/global-config';
 
 const ibmPlexSansThai = IBM_Plex_Sans_Thai({
   subsets: ['thai'],
@@ -18,7 +19,7 @@ const silom = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'CE Smart Career 2024',
+  title: `CE Smart Career ${CONFIG.date.years}`,
   description: 'The biggest computer-it job fair & seminar at CE, KMITL',
   icons: '/favicon.ico',
 };
