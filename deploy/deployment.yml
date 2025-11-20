@@ -40,6 +40,26 @@ spec:
                 secretKeyRef:
                   name: nocodb-credentials
                   key: NOCODB_SEMINAR_DB
+            - name: IS_COMING_SOON
+              valueFrom:
+                secretKeyRef:
+                  name: nocodb-credentials
+                  key: IS_COMING_SOON
+            - name: YEARS
+              valueFrom:
+                secretKeyRef:
+                  name: nocodb-credentials
+                  key: YEARS
+            - name: SEMINAR_FIRST_DAY_DATE
+              valueFrom:
+                secretKeyRef:
+                  name: nocodb-credentials
+                  key: SEMINAR_FIRST_DAY_DATE
+            - name: SEMINAR_SECOND_DAY_DATE
+              valueFrom:
+                secretKeyRef:
+                  name: nocodb-credentials
+                  key: SEMINAR_SECOND_DAY_DATE
           ports:
             - containerPort: 3000
       imagePullSecrets:
