@@ -10,6 +10,10 @@ env:
   NOCODB_API_URL: ${{ secrets.NOCODB_API_URL }}
   NOCODB_COMPANY_DB: ${{ secrets.NOCODB_COMPANY_DB }}
   NOCODB_SEMINAR_DB: ${{ secrets.NOCODB_SEMINAR_DB }}
+  SEMINAR_FIRST_DAY_DATE: ${{ secrets.SEMINAR_FIRST_DAY_DATE }}
+  SEMINAR_SECOND_DAY_DATE: ${{ secrets.SEMINAR_SECOND_DAY_DATE }}
+  IS_COMING_SOON: ${{ secrets.IS_COMING_SOON }}
+  YEARS: ${{secrets.YEARS}}
 
 jobs:
   build:
@@ -46,6 +50,10 @@ jobs:
             NOCODB_API_URL=${{ secrets.NOCODB_API_URL }}
             NOCODB_COMPANY_DB=${{ secrets.NOCODB_COMPANY_DB }}
             NOCODB_SEMINAR_DB=${{ secrets.NOCODB_SEMINAR_DB }}
+            SEMINAR_FIRST_DAY_DATE=${{ secrets.SEMINAR_FIRST_DAY_DATE }}
+            SEMINAR_SECOND_DAY_DATE=${{ secrets.SEMINAR_SECOND_DAY_DATE }}
+            IS_COMING_SOON=${{ secrets.IS_COMING_SOON }}
+            YEARS=${{ secrets.YEARS }}
 
   deploy:
     name: Deploy
