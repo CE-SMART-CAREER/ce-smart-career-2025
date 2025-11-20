@@ -18,3 +18,14 @@ export const NAV_LINKS: NavListItem[] = [
     href: '#locations',
   },
 ];
+
+export const COMING_SOON_NAV_LINKS: NavListItem[] = [
+  {
+    name: 'เกี่ยวกับ',
+    href: '#about',
+  },
+  {
+    name: 'โปรดติดตาม',
+    href: '#coming-soon',
+  },
+]
