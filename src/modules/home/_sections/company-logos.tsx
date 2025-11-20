@@ -1,3 +1,4 @@
+import { CONFIG } from '@/global-config';
 import { CompanyLogo } from '../_components';
 import { CompanyInfoModal } from '../_components/company-info-modal';
 
@@ -19,7 +20,7 @@ export default function CompanyLogos({ companies, selectedCompanyId }: Props) {
         <section className="px-0 py-10 text-white sm:px-10">
           <h2 className="mb-10 text-center text-3xl font-semibold md:text-4xl">
             บริษัทที่เข้าร่วม
-            <span className="visuallyhidden">กิจกรรม CE smart career 2024</span>
+            <span className="visuallyhidden">กิจกรรม CE smart career {CONFIG.date.years}</span>
           </h2>
 
           <div className="grid grid-cols-2 gap-6 px-4 sm:grid-cols-3 sm:px-6 md:grid-cols-4 lg:px-8">

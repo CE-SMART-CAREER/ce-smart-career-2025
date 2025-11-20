@@ -1,5 +1,7 @@
-/* eslint-disable no-unused-vars */
+import { CONFIG } from '@/global-config';
 import type { TriggerBtn, ChartContent } from '../_types';
+import { fDate, formatStr } from '@/shared/utils';
+import dayjs from 'dayjs';
 
 export enum DayValueTrigger {
   FIRST_DAY = 'firstDay',
@@ -7,20 +9,20 @@ export enum DayValueTrigger {
 }
 
 export const dayMapper = new Map<string, DayValueTrigger>([
-  ['2024-11-28', DayValueTrigger.FIRST_DAY],
-  ['2024-11-29', DayValueTrigger.SECOND_DAY],
+  [CONFIG.date.seminarFirstDayDate, DayValueTrigger.FIRST_DAY],
+  [CONFIG.date.seminarSecondDayDate, DayValueTrigger.SECOND_DAY],
 ]);
 
 export const tabsTrigger: TriggerBtn[] = [
   {
     value: DayValueTrigger.FIRST_DAY,
     mainMsg: 'Day 1',
-    altMsg: '28 November 24',
+    altMsg:  fDate(CONFIG.date.seminarFirstDayDate, formatStr.longDate) ?? '',
   },
   {
     value: DayValueTrigger.SECOND_DAY,
     mainMsg: 'Day 2',
-    altMsg: '29 November 24',
+    altMsg: fDate(CONFIG.date.seminarSecondDayDate, formatStr.longDate) ?? '',
   },
 ];
 
