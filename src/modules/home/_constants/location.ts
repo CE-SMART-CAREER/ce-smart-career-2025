@@ -1,7 +1,9 @@
 import { CONFIG } from '@/global-config';
 import type { TriggerBtn, ChartContent } from '../_types';
 import { fDate, formatStr } from '@/shared/utils';
-import dayjs from 'dayjs';
+
+const seminarFirstDayDate = '2025-11-27'
+const seminarSecondDayDate = '2025-11-28'
 
 export enum DayValueTrigger {
   FIRST_DAY = 'firstDay',
@@ -9,20 +11,20 @@ export enum DayValueTrigger {
 }
 
 export const dayMapper = new Map<string, DayValueTrigger>([
-  [CONFIG.date.seminarFirstDayDate, DayValueTrigger.FIRST_DAY],
-  [CONFIG.date.seminarSecondDayDate, DayValueTrigger.SECOND_DAY],
+  [seminarFirstDayDate, DayValueTrigger.FIRST_DAY],
+  [seminarSecondDayDate, DayValueTrigger.SECOND_DAY],
 ]);
 
 export const tabsTrigger: TriggerBtn[] = [
   {
     value: DayValueTrigger.FIRST_DAY,
     mainMsg: 'Day 1',
-    altMsg:  fDate(CONFIG.date.seminarFirstDayDate, formatStr.longDate) ?? '',
+    altMsg:  fDate(seminarFirstDayDate, formatStr.longDate) ?? '',
   },
   {
     value: DayValueTrigger.SECOND_DAY,
     mainMsg: 'Day 2',
-    altMsg: fDate(CONFIG.date.seminarSecondDayDate, formatStr.longDate) ?? '',
+    altMsg: fDate(seminarSecondDayDate, formatStr.longDate) ?? '',
   },
 ];
 

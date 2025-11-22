@@ -1,6 +1,6 @@
 import { endpoints } from '@/shared/configs';
 import { CONFIG } from '@/global-config';
-import type { Company, NocoDbResponse, Seminar } from '../_types';
+import type { Company, NocoDbCompany, NocoDbResponse, Seminar } from '../_types';
 
 const baseHeader = {
   'xc-token': CONFIG.nocodb.token,
@@ -29,7 +29,10 @@ export async function getCompanies(): Promise<NocoDbResponse<Company>> {
       headers: baseHeader,
     });
 
-    return await response.json()
+    const companies = await response.json()
+    companies.list = transformCompanies(companies.list)
+
+    return companies
   } catch (error) {
     console.error(error)
 
@@ -38,15 +41,32 @@ export async function getCompanies(): Promise<NocoDbResponse<Company>> {
 
 }
 
+function transformCompanies(companies: NocoDbCompany[]): Company[] {
+  const tranformed: Company[] = []
+
+  companies.forEach(company => {
+    const comp: Company = {
+      ...company,
+      logo: CONFIG.nocodb.apiUrl + '/' + company.logo[0].path
+    }
+
+    tranformed.push(comp)
+  });
+
+  return tranformed
+}
+
 export async function getSeminars(): Promise<NocoDbResponse<Seminar>> {
   try {
     if (CONFIG.isComingSoon) {
       return getDefaultNocoDbResponse<Seminar>()
     }
-    
-    const response = await fetch(endpoints.seminar.records, {
+
+    const options = {
+      method: 'GET',
       headers: baseHeader,
-    });
+    };
+    const response = await fetch(endpoints.seminar.records, options)
 
     return await response.json()
   } catch (error) {

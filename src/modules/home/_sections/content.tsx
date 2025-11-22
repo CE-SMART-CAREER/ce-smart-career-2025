@@ -43,9 +43,14 @@ export default function Content({ companyId, companies, seminarList, isComingSoo
         <>
           <ObserverSection id="seminar" onChange={setInView}>
             <Seminar seminarList={seminarList} />
-          </ObserverSection><ObserverSection id="companies" onChange={setInView}>
-            <CompanyLogos companies={companies} selectedCompanyId={companyId} />
-          </ObserverSection><ObserverSection id="locations" onChange={setInView}>
+          </ObserverSection>
+          <ObserverSection id="companies" onChange={setInView}>
+            <CompanyLogos 
+              companies={companies} 
+              selectedCompanyId={companyId} 
+            />
+          </ObserverSection>
+          <ObserverSection id="locations" onChange={setInView}>
             <Location companies={companies} />
           </ObserverSection>
         </>

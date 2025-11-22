@@ -10,6 +10,16 @@ type Props = {
 };
 
 export default function CompanyLogos({ companies, selectedCompanyId }: Props) {
+  const uniqueCompanyName = new Set<string>()
+  const uniqueCompany: Company[] = []
+
+  companies.forEach(company => {
+    if (!uniqueCompanyName.has(company.name)) {
+      uniqueCompany.push(company)
+      uniqueCompanyName.add(company.name)
+    } 
+  })
+
   const selectedCompany = companies?.find(
     (company: Company) => company.Id === selectedCompanyId,
   );
@@ -24,7 +34,7 @@ export default function CompanyLogos({ companies, selectedCompanyId }: Props) {
           </h2>
 
           <div className="grid grid-cols-2 gap-6 px-4 sm:grid-cols-3 sm:px-6 md:grid-cols-4 lg:px-8">
-            {companies?.map((company: Company, index: number) => (
+            {uniqueCompany?.map((company: Company, index: number) => (
               <CompanyLogo
                 key={index}
                 name={company?.name}
