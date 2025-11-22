@@ -78,11 +78,14 @@ const useTransformCompanies = (companies: Company[]) => {
     })
 
     return companies.map(company => {
-      if (duplicatedCompany.has(company.name)) {
-        company.name = `${company.name} (${fDate(company.date, formatStr.date)})`
-      }
+      const newCompany: Company = {
+        ...company,
+        name: duplicatedCompany.has(company.name) 
+          ? `${company.name} (${fDate(company.date, formatStr.date)})`
+          : company.name
+      } 
 
-      return company
+      return newCompany
     })
   }, [companies])
 
