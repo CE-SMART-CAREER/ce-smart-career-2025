@@ -20,6 +20,8 @@ import {
   TabsTrigger,
 } from '@/shared/components/ui/tabs';
 import { SearchCompany } from '../_components/search-company';
+import { useMemo } from 'react';
+import { fDate, formatStr } from '@/shared/utils';
 
 type ChartProps = {
   content: ChartContent;
@@ -61,7 +63,34 @@ function Chart({ content }: ChartProps) {
   );
 }
 
+
+const useTransformCompanies = (companies: Company[]) => {
+  const transformed = useMemo(() => {
+    const uniqueCompanyName = new Set<string>()
+    const duplicatedCompany = new Set<string>()
+
+    companies.forEach(company => {
+      if (uniqueCompanyName.has(company.name)) {
+        duplicatedCompany.add(company.name)
+      } 
+
+      uniqueCompanyName.add(company.name)
+    })
+
+    return companies.map(company => {
+      if (duplicatedCompany.has(company.name)) {
+        company.name = `${company.name} (${fDate(company.date, formatStr.date)})`
+      }
+
+      return company
+    })
+  }, [companies])
+
+  return transformed
+}
+
 export default function Location({ companies }: LocationProps) {
+  const transformCompanies = useTransformCompanies(companies)
   const activeTabStyle =
     'data-[state=active]:text-orange-300 data-[state=active]:border-b-orange-300';
 
@@ -69,7 +98,7 @@ export default function Location({ companies }: LocationProps) {
     <article className="relative flex w-full flex-col justify-center px-8 py-24 lg:h-svh lg:py-36">
       <section className="mx-auto flex w-full flex-col justify-center gap-5 xl:max-w-screen-xl">
         <h2 className="w-full text-2xl font-bold sm:text-3xl md:text-4xl">
-          สถานที่ และผังงาน
+          สถานที่ และ ผังงาน
         </h2>
 
         <Tabs
@@ -117,7 +146,7 @@ export default function Location({ companies }: LocationProps) {
               <h3 className="text-2xl font-bold text-orange-300">
                 ค้นหาชื่อบริษัท
               </h3>
-              <SearchCompany companies={companies} />
+              <SearchCompany companies={transformCompanies} />
             </GradientCard>
           </section>
         </Tabs>
