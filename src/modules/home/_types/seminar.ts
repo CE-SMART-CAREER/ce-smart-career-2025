@@ -9,6 +9,7 @@ export type Seminar = {
 };
 
 export type SeminarSlot = {
+  room: number
   startAt: string;
   endAt: string;
   company: string;

@@ -27,6 +27,7 @@ export async function getSeminarsGroupedByDay(): Promise<SeminarDay[]> {
     }
 
     const newSeminar: SeminarSlot = {
+      room: seminar.room,
       startAt: seminar.startAt,
       endAt: seminar.endAt,
       company: companyName,
