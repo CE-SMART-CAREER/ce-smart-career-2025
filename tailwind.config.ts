@@ -72,6 +72,9 @@ const config: Config = {
           '400': 'var(--gray-400)',
           '500': 'var(--gray-500)',
         },
+        navy: {
+          '900': 'var(--navy-900)',
+        },
       },
       borderRadius: {
         lg: 'var(--radius)',

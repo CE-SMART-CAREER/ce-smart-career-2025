@@ -35,7 +35,7 @@ export default function RootLayout({
         className={cn(
           ibmPlexSansThai.variable,
           silom.variable,
-          'w-screen cursor-default bg-black font-ibm-plex-sans-thai antialiased',
+          'w-screen cursor-default bg-navy-900 font-ibm-plex-sans-thai antialiased',
         )}
       >
         {children}
