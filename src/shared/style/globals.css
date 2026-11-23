@@ -101,92 +101,88 @@ body {
     --linear-white: linear-gradient(
       112.54deg,
       rgba(255, 255, 255, 0.1) 10.29%,
-      rgba(0, 0, 0, 0.1) 100.35%
+      rgba(3, 26, 35, 0.1) 100.35%
     );
 
     --linear-gray: linear-gradient(
       112.54deg,
       rgba(255, 255, 255, 0.2) 6.21%,
-      rgba(113, 113, 113, 0.2) 43.78%,
+      rgba(55, 117, 128, 0.2) 43.78%,
       rgba(255, 255, 255, 0.2) 77.1%
     );
 
     --linear-soft-gray: linear-gradient(
       112.54deg,
       rgba(255, 255, 255, 0.05) 6.21%,
-      rgba(113, 113, 113, 0.05) 43.78%,
+      rgba(55, 117, 128, 0.05) 43.78%,
       rgba(255, 255, 255, 0.05) 77.1%
     );
 
     --linear-black-orange: linear-gradient(
       112.54deg,
-      rgba(14, 7, 21, 0.2) 10.29%,
-      rgba(246, 135, 30, 0.2) 100.35%
+      rgba(3, 26, 35, 0.2) 10.29%,
+      rgba(193, 106, 54, 0.2) 100.35%
     );
 
     --linear-orange-gray: linear-gradient(
       129.31deg,
-      rgba(246, 135, 30, 0.2) 9.16%,
-      rgba(153, 153, 153, 0) 94.08%
+      rgba(193, 106, 54, 0.2) 9.16%,
+      rgba(55, 117, 128, 0) 94.08%
     );
 
     --linear-orange-black: linear-gradient(
       112.54deg,
-      rgba(246, 135, 30, 0.4) 10.29%,
-      rgba(0, 0, 0, 1) 100.35%
+      rgba(165, 79, 64, 0.4) 10.29%,
+      rgba(1, 55, 68, 1) 100.35%
     );
 
     --linear-gray-orange: linear-gradient(
       112.54deg,
       rgba(255, 255, 255, 0.2) 10.29%,
-      rgba(19, 15, 11, 0.2) 100.35%
+      rgba(3, 26, 35, 0.2) 100.35%
     );
     --linear-black-orange-hori: linear-gradient(
       180deg,
-      rgba(14, 7, 21, 0.2) 10.29%,
-      rgba(246, 135, 30, 0.2) 100.35%
-    );
-
-    --linear-black-orange-hori: linear-gradient(
-      180deg,
-      rgba(14, 7, 21, 0.2) 10.29%,
-      rgba(246, 135, 30, 0.2) 100.35%
+      rgba(3, 26, 35, 0.2) 10.29%,
+      rgba(193, 106, 54, 0.2) 100.35%
     );
 
     --radial-orange-black: radial-gradient(
       50% 50% at 50% 50%,
-      rgba(246, 135, 30, 1) 40.5%,
-      rgba(0, 0, 0, 0) 100%
+      rgba(165, 79, 64, 1) 40.5%,
+      rgba(1, 55, 68, 0) 100%
     );
 
     --linear-orange-red: linear-gradient(
       90deg,
-      rgba(237, 140, 56, 1) 0%,
-      rgba(255, 132, 0, 1) 100%
+      rgba(165, 79, 64, 1) 0%,
+      rgba(193, 106, 54, 1) 100%
     );
 
     --linear-orange-black-vertical: linear-gradient(
       180deg,
-      rgba(246, 135, 30, 1) 0%,
-      rgba(0, 0, 0, 0) 34.55%
+      rgba(193, 106, 54, 1) 0%,
+      rgba(1, 55, 68, 0) 34.55%
     );
 
-    --brown-500: #50341b;
+    --brown-500: #5c2e1c;
 
-    --orange-75: #fbcea3;
-    --orange-100: #fab97d;
-    --orange-200: #f89b44;
-    --orange-300: #f6871e;
-    --orange-400: #ac5f15;
-    --orange-500: #965212;
-    --orange-flare: #ffa996;
+    --orange-75: #e8c9a8;
+    --orange-100: #bb7c40;
+    --orange-200: #c16a36;
+    --orange-300: #a54f40;
+    --orange-400: #8a3f32;
+    --orange-500: #6b2f26;
+    --orange-flare: #d98f5c;
 
-    --gray-75: #d3d3d3;
-    --gray-100: #c1c1c1;
-    --gray-200: #a6a6a6;
-    --gray-300: #949494;
-    --gray-400: #6b6b6b;
-    --gray-500: #5a5a5a;
+    --gray-75: #cfe0e3;
+    --gray-100: #b4ccd0;
+    --gray-200: #8fb0b5;
+    --gray-300: #6b939a;
+    --gray-400: #377580;
+    --gray-500: #013744;
+
+    --navy-900: #031a23;
 
     --error-75: #f7a9a9;
     --error-100: #f38686;

@@ -20,6 +20,15 @@ const getDefaultNocoDbResponse = <T>(): NocoDbResponse<T> => {
 }
 
 export async function getCompanies(): Promise<NocoDbResponse<Company>> {
+  // TEMP DEMO MOCK - revert before committing
+  return {
+    list: [
+      { Id: 1, name: 'บริษัท ทดสอบ เอ', description: 'demo', contact: '', url: '', date: '2026-12-15', type: '', nc_pejk___seminar_id: 0, logo: '' },
+      { Id: 2, name: 'บริษัท ทดสอบ บี', description: 'demo', contact: '', url: '', date: '2026-12-16', type: '', nc_pejk___seminar_id: 0, logo: '' },
+    ] as Company[],
+    pageInfo: { totalRows: 2, page: 1, pageSize: 10, isFirstPage: true, isLastPage: true },
+  }
+
   try {
     if (CONFIG.isComingSoon) {
       return getDefaultNocoDbResponse<Company>()
@@ -57,6 +66,18 @@ function transformCompanies(companies: NocoDbCompany[]): Company[] {
 }
 
 export async function getSeminars(): Promise<NocoDbResponse<Seminar>> {
+  // TEMP DEMO MOCK - revert before committing
+  return {
+    list: [
+      { Id: 1, CreatedAt: '', UpdatedAt: '', startAt: '2026-12-15 09:00:00', endAt: '2026-12-15 10:00:00', company: { Id: 1 }, room: 810 },
+      { Id: 2, CreatedAt: '', UpdatedAt: '', startAt: '2026-12-15 09:00:00', endAt: '2026-12-15 10:00:00', company: { Id: 2 }, room: 811 },
+      { Id: 3, CreatedAt: '', UpdatedAt: '', startAt: '2026-12-15 10:30:00', endAt: '2026-12-15 11:30:00', company: { Id: 2 }, room: 810 },
+      { Id: 4, CreatedAt: '', UpdatedAt: '', startAt: '2026-12-16 09:00:00', endAt: '2026-12-16 10:00:00', company: { Id: 1 }, room: 810 },
+      { Id: 5, CreatedAt: '', UpdatedAt: '', startAt: '2026-12-16 13:00:00', endAt: '2026-12-16 14:00:00', company: { Id: 2 }, room: 811 },
+    ] as Seminar[],
+    pageInfo: { totalRows: 5, page: 1, pageSize: 10, isFirstPage: true, isLastPage: true },
+  }
+
   try {
     if (CONFIG.isComingSoon) {
       return getDefaultNocoDbResponse<Seminar>()

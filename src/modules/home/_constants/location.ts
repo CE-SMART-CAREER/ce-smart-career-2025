@@ -2,8 +2,8 @@ import { CONFIG } from '@/global-config';
 import type { TriggerBtn, ChartContent } from '../_types';
 import { fDate, formatStr } from '@/shared/utils';
 
-const seminarFirstDayDate = '2025-11-27'
-const seminarSecondDayDate = '2025-11-28'
+const seminarFirstDayDate = '2026-12-15'
+const seminarSecondDayDate = '2026-12-16'
 
 export enum DayValueTrigger {
   FIRST_DAY = 'firstDay',
@@ -31,12 +31,12 @@ export const tabsTrigger: TriggerBtn[] = [
 export const tabsContent: ChartContent[] = [
   {
     value: DayValueTrigger.FIRST_DAY,
-    src: '/assets/images/plan28.png',
+    src: '/assets/images/plan15.png',
     alt: 'firstDayChart',
   },
   {
     value: DayValueTrigger.SECOND_DAY,
-    src: '/assets/images/plan29.png',
+    src: '/assets/images/plan16.png',
     alt: 'secondDayChart',
   },
 ];
